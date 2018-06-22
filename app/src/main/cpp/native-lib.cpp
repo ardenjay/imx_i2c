@@ -25,9 +25,9 @@ Java_com_myandroid_imx_1i2c_MainActivity_stringFromJNI(
  * Method:    i2c_init
  * Signature: (I)V
  */
-extern "C" int JNICALL
-Java_com_myandroid_imx_1i2c_MainActivity_i2c_1init
-        (JNIEnv *env, jobject, jint addr) {
+extern "C" JNIEXPORT jint JNICALL
+Java_com_myandroid_imx_1i2c_MainActivity_i2c_1init(
+        JNIEnv *env, jobject obj, jint addr) {
     LOGD("addr: 0x%x", addr);
     int fd = open(I2C_MASTER_DEV, O_RDWR);
     if (fd < 0) {

@@ -37,5 +37,5 @@ public class MainActivity extends AppCompatActivity {
      * which is packaged with this application.
      */
     public native String stringFromJNI();
-    public native void i2c_init(int addr);
+    public native int i2c_init(int addr);
 }
