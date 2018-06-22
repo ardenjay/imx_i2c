@@ -7,8 +7,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-
     EditText e;
+    TextView tv;
 
     // Used to load the 'native-lib' library on application startup.
     static {
@@ -21,15 +21,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         e = (EditText) findViewById(R.id.i2c_addr);
-        // Example of a call to a native method
-        //TextView tv = (TextView) findViewById(R.id.id_text);
+
+        tv = (TextView) findViewById(R.id.txtResult);
         //tv.setText(stringFromJNI());
     }
 
     public void onClick(View v) {
         int addr = Integer.parseInt(e.getText().toString(), 16);
         System.out.println("addr: " + addr);
-        i2c_init(addr);
+        int ret = i2c_init(addr);
+        if (ret != 0) {
+            tv.setText("i2c_init fail");
+        } else {
+            tv.setText("i2c_init success");
+        }
         //stringFromJNI();
     }
     /**
