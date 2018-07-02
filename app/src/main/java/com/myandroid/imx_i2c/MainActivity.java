@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         } else {
             tv.setText("i2c_init success");
         }
-        //stringFromJNI();
+        dynamic_i2c_init(addr);
     }
     /**
      * A native method that is implemented by the 'native-lib' native library,
@@ -43,4 +43,5 @@ public class MainActivity extends AppCompatActivity {
      */
     public native String stringFromJNI();
     public native int i2c_init(int addr);
+    public native int dynamic_i2c_init(int addr);
 }
