@@ -1,6 +1,6 @@
 # imx_i2c
 
-A tiny program for demonstration access i2c from Android apk
+A tiny program for demonstrating i2c access from Android apk
 
 To grant the permission for /dev/i2c-0,
 
